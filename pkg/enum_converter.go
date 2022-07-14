@@ -13,4 +13,6 @@ func EncodeHandShapes(n int32) pb.HandShapes {
 	case 4:
 		return pb.HandShapes_HAND_SHAPES_UNKNOWN
 	}
+
+	return pb.HandShapes_HAND_SHAPES_UNKNOWN
 }
