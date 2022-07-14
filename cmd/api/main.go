@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"net"
 
 	"github.com/yu-hasebe/rock-paper-scissors/pb"
 	"github.com/yu-hasebe/rock-paper-scissors/service"
@@ -13,7 +14,7 @@ import (
 
 func main() {
 	port := 50051
-	listenPort, err := net.listen("tcp", fmt.Sprintf(":%d", port))
+	listenPort, err := net.Listen("tcp", fmt.Sprintf(":%d", port))
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
 	}
