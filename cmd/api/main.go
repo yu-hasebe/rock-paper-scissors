@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"log"
-	"net"
 
 	"github.com/yu-hasebe/rock-paper-scissors/pb"
 	"github.com/yu-hasebe/rock-paper-scissors/service"

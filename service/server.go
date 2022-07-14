@@ -6,7 +6,6 @@ import (
 	"time"
 
 	"github.com/golang/protobuf/ptypes/timestamp"
-
 	"github.com/yu-hasebe/rock-paper-scissors/pb"
 	"github.com/yu-hasebe/rock-paper-scissors/pkg"
 	"google.golang.org/grpc/codes"
@@ -52,7 +51,7 @@ func (s *RockPaperScissorsService) PlayGame(ctx context.Context, req *pb.PlayReq
 		YourHandShapes:     req.HandShapes,
 		OpponentHandShapes: opponentHandShapes,
 		Result:             result,
-		CreateTime: xtamp.Timestamp{
+		CreateTime: &timestamp.Timestamp{
 			Seconds: now.Unix(),
 			Nanos:   int32(now.Nanosecond()),
 		},
@@ -72,9 +71,9 @@ func (s *RockPaperScissorsService) PlayGame(ctx context.Context, req *pb.PlayReq
 func (s *RockPaperScissorsService) ReportMatchResults(ctx context.Context, req *pb.ReportRequest) (*pb.ReportResponse, error) {
 	return &pb.ReportResponse{
 		Report: &pb.Report{
-			NumberOfames: s.numberOfGames,
-			NumberOfWins: s.numberOfWins,
-			MatchResults: s.matchResults,
+			NumberOfGames: s.numberOfGames,
+			NumberOfWins:  s.numberOfWins,
+			MatchResults:  s.matchResults,
 		},
 	}, nil
 }
